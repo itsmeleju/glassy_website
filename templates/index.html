@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ info.name }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <nav class="navbar glass-card">
+        <h1 class="brand-title">{{ info.name }}</h1>
+        <div class="nav-links">
+            <a href="#" class="nav-link"><button class="nav-glass">Home</button></a>
+            <a href="#" class="nav-link"><button class="nav-glass">Academics</button></a>
+            <a href="#" class="nav-link"><button class="nav-glass">Admissions</button></a>
+            <a href="#" class="nav-link"><button class="nav-glass">Contact</button></a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero-banner glass-card">
+            <h2 class="gradient-heading">{{ info.name }}</h2>
+            <p class="hero-tagline">{{ info.tagline }}</p>
+            <button class="btn-glass">Explore Programs</button>
+        </section>
+
+        <section class="announcement-grid">
+            {% for notice in info.announcements %}
+            <article class="notice-card glass-card">
+                <span class="notice-tag">Notice</span>
+                <p class="notice-text">{{ notice }}</p>
+            </article>
+            {% endfor %}
+        </section>
+    </main>
+
+</body>
+</html>
